@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/fuzzylogic/lib/fuzzylogic.min.js"></script>
+
+    <title>Fuzzy Logic System</title>
+  </head>
+  <body>
+    <form id="fuzzyForm">
+      <!-- Pertanyaan 1 -->
+      <div>
+        <label>Pertanyaan 1:</label><br />
+        <input type="radio" name="question1" value="C01" /> C01 Sangat mudah
+        untuk mengingat apa yang dia lihat<br />
+        <input type="radio" name="question1" value="C02" /> C02 Sangat mudah
+        untuk mengingat apa yang dia dengar<br />
+        <input type="radio" name="question1" value="C03" /> C03 Sangat mudah
+        untuk mengingat apa yang dia lakukan<br />
+        <label>Keterangan:</label><br />
+        <input type="radio" name="frequency1" value="Jarang" /> Jarang<br />
+        <input type="radio" name="frequency1" value="Kadang" /> Kadang<br />
+        <input type="radio" name="frequency1" value="Sering" /> Sering<br />
+        <input type="radio" name="frequency1" value="Sangat Sering" /> Sangat
+        Sering<br />
+      </div>
+
+      <!-- Pertanyaan 2 -->
+      <div>
+        <label>Pertanyaan 2:</label><br />
+        <input type="radio" name="question2" value="C04" /> C04 Lebih menyukai
+        lukisan<br />
+        <input type="radio" name="question2" value="C05" /> C05 Lebih menyukai
+        musik<br />
+        <input type="radio" name="question2" value="C06" /> C06 Lebih menyukai
+        tarian<br />
+        <label>Keterangan:</label><br />
+        <input type="radio" name="frequency2" value="Jarang" /> Jarang<br />
+        <input type="radio" name="frequency2" value="Kadang" /> Kadang<br />
+        <input type="radio" name="frequency2" value="Sering" /> Sering<br />
+        <input type="radio" name="frequency2" value="Sangat Sering" /> Sangat
+        Sering<br />
+      </div>
+
+      <!-- Pertanyaan 3 -->
+      <div>
+        <label>Pertanyaan 3:</label><br />
+        <input type="radio" name="question3" value="C07" /> C07 Cenderung
+        memperhatikan rupa dan pakaian orang<br />
+        <input type="radio" name="question3" value="C08" /> C08 Cenderung
+        memperhatikan bahasa/pembicaraan<br />
+        <input type="radio" name="question3" value="C09" /> C09 Cenderung
+        memperhatikan sikap dan gerak tubuhnya<br />
+        <label>Keterangan:</label><br />
+        <input type="radio" name="frequency3" value="Jarang" /> Jarang<br />
+        <input type="radio" name="frequency3" value="Kadang" /> Kadang<br />
+        <input type="radio" name="frequency3" value="Sering" /> Sering<br />
+        <input type="radio" name="frequency3" value="Sangat Sering" /> Sangat
+        Sering<br />
+      </div>
+
+      <!-- Pertanyaan 4 -->
+      <div>
+        <label>Pertanyaan 4:</label><br />
+        <input type="radio" name="question4" value="C10" /> C10 Suka menghafal
+        sesuatu dengan menulis<br />
+        <input type="radio" name="question4" value="C11" /> C11 Suka menghafal
+        sesuatu dengan mengucapkannya dengan suara keras berulang kali<br />
+        <input type="radio" name="question4" value="C12" /> C12 Suka menghafal
+        sesuatu sambil berjalan/bergerak<br />
+        <label>Keterangan:</label><br />
+        <input type="radio" name="frequency4" value="Jarang" /> Jarang<br />
+        <input type="radio" name="frequency4" value="Kadang" /> Kadang<br />
+        <input type="radio" name="frequency4" value="Sering" /> Sering<br />
+        <input type="radio" name="frequency4" value="Sangat Sering" /> Sangat
+        Sering<br />
+      </div>
+
+      <!-- Pertanyaan 5 -->
+      <div>
+        <label>Pertanyaan 5:</label><br />
+        <input type="radio" name="question5" value="C13" /> C13 Cenderung
+        membawa coretan di kertas saat berbicara/presentasi<br />
+        <input type="radio" name="question5" value="C14" /> C14 Cenderung
+        menyampaikan secara lisan saat berbicara/presentasi<br />
+        <input type="radio" name="question5" value="C15" /> C15 Cenderung
+        menggerakkan tangan saat berbicara/presentasi<br />
+        <label>Keterangan:</label><br />
+        <input type="radio" name="frequency5" value="Jarang" /> Jarang<br />
+        <input type="radio" name="frequency5" value="Kadang" /> Kadang<br />
+        <input type="radio" name="frequency5" value="Sering" /> Sering<br />
+        <input type="radio" name="frequency5" value="Sangat Sering" /> Sangat
+        Sering<br />
+      </div>
+
+      <!-- Pertanyaan 6 -->
+      <div>
+        <label>Pertanyaan 6:</label><br />
+        <input type="radio" name="question6" value="C16" /> C16 Mudah terganggu
+        oleh barang-barang berantakan di sekitarnya<br />
+        <input type="radio" name="question6" value="C17" /> C17 Mudah terganggu
+        oleh suara yang berisik<br />
+        <input type="radio" name="question6" value="C18" /> C18 Mudah terganggu
+        oleh benda yang bergerak<br />
+        <label>Keterangan:</label><br />
+        <input type="radio" name="frequency6" value="Jarang" /> Jarang<br />
+        <input type="radio" name="frequency6" value="Kadang" /> Kadang<br />
+        <input type="radio" name="frequency6" value="Sering" /> Sering<br />
+        <input type="radio" name="frequency6" value="Sangat Sering" /> Sangat
+        Sering<br />
+      </div>
+
+      <!-- Pertanyaan 7 -->
+      <div>
+        <label>Pertanyaan 7:</label><br />
+        <input type="radio" name="question7" value="C19" /> C19 Lebih tertarik
+        dengan warna<br />
+        <input type="radio" name="question7" value="C20" /> C20 Lebih tertarik
+        dengan suara<br />
+        <input type="radio" name="question7" value="C21" /> C21 Lebih tertarik
+        dengan gerakan tubuh<br />
+        <label>Keterangan:</label><br />
+        <input type="radio" name="frequency7" value="Jarang" /> Jarang<br />
+        <input type="radio" name="frequency7" value="Kadang" /> Kadang<br />
+        <input type="radio" name="frequency7" value="Sering" /> Sering<br />
+        <input type="radio" name="frequency7" value="Sangat Sering" /> Sangat
+        Sering<br />
+      </div>
+
+      <!-- Pertanyaan 8 -->
+      <div>
+        <label>Pertanyaan 8:</label><br />
+        <input type="radio" name="question8" value="C22" /> C22 Sulit belajar
+        terlalu lama apabila materi penuh tulisan yang tidak rapi<br />
+        <input type="radio" name="question8" value="C23" /> C23 Sulit
+        berkonsentrasi saat ada keributan atau keramaian<br />
+        <input type="radio" name="question8" value="C24" /> C24 Sulit untuk
+        dapat duduk dengan tenang atau diam<br />
+        <label>Keterangan:</label><br />
+        <input type="radio" name="frequency8" value="Jarang" /> Jarang<br />
+        <input type="radio" name="frequency8" value="Kadang" /> Kadang<br />
+        <input type="radio" name="frequency8" value="Sering" /> Sering<br />
+        <input type="radio" name="frequency8" value="Sangat Sering" /> Sangat
+        Sering<br />
+      </div>
+
+      <!-- Pertanyaan 9 -->
+      <div>
+        <label>Pertanyaan 9:</label><br />
+        <input type="radio" name="question9" value="C25" /> C25 Senang diajarkan
+        dengan menggambarkan suatu benda di papan tulis<br />
+        <input type="radio" name="question9" value="C26" /> C26 Senang diajarkan
+        dengan menjelaskan dan suara yang indah<br />
+        <input type="radio" name="question9" value="C27" /> C27 Senang diajarkan
+        dengan berlatih dan menyentuh objek yang dibahas<br />
+        <label>Keterangan:</label><br />
+        <input type="radio" name="frequency9" value="Jarang" /> Jarang<br />
+        <input type="radio" name="frequency9" value="Kadang" /> Kadang<br />
+        <input type="radio" name="frequency9" value="Sering" /> Sering<br />
+        <input type="radio" name="frequency9" value="Sangat Sering" /> Sangat
+        Sering<br />
+      </div>
+
+      <!-- Pertanyaan 10 -->
+      <div>
+        <label>Pertanyaan 10:</label><br />
+        <input type="radio" name="question10" value="C28" /> C28 Mementingkan
+        penampilan<br />
+        <input type="radio" name="question10" value="C29" /> C29 Mementingkan
+        kemampuan berbicara dengan baik<br />
+        <input type="radio" name="question10" value="C30" /> C30 Mementingkan
+        pergerakan fisik<br />
+        <label>Keterangan:</label><br />
+        <input type="radio" name="frequency10" value="Jarang" /> Jarang<br />
+        <input type="radio" name="frequency10" value="Kadang" /> Kadang<br />
+        <input type="radio" name="frequency10" value="Sering" /> Sering<br />
+        <input type="radio" name="frequency10" value="Sangat Sering" /> Sangat
+        Sering<br />
+      </div>
+
+      <button type="button" onclick="calculateFuzzy()">Submit</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/fuzzylogic/lib/fuzzylogic.min.js"></script>
+    <script>
+      function calculateFuzzy() {
+        const questions = [
+          ["C01", "C02", "C03"],
+          ["C04", "C05", "C06"],
+          ["C07", "C08", "C09"],
+          ["C10", "C11", "C12"],
+          ["C13", "C14", "C15"],
+          ["C16", "C17", "C18"],
+          ["C19", "C20", "C21"],
+          ["C22", "C23", "C24"],
+          ["C25", "C26", "C27"],
+          ["C28", "C29", "C30"],
+        ];
+
+        let answers = {};
+
+        questions.forEach((group, index) => {
+          const selected = document.querySelector(
+            `input[name="question${index + 1}"]:checked`
+          );
+          const frequency = document.querySelector(
+            `input[name="frequency${index + 1}"]:checked`
+          );
+
+          if (selected && frequency) {
+            answers[`question${index + 1}`] = {
+              gejala: selected.value,
+              frequency: frequency.value,
+            };
+          } else {
+            answers[`question${index + 1}`] = {
+              gejala: null,
+              frequency: null,
+            };
+          }
+        });
+
+        const membershipFunctions = {
+          Jarang: (x) => fuzzylogic.trapezoid(x, 0, 0, 20, 40),
+          Kadang: (x) => fuzzylogic.trapezoid(x, 20, 40, 40, 60),
+          Sering: (x) => fuzzylogic.trapezoid(x, 40, 60, 60, 80),
+          "Sangat Sering": (x) => fuzzylogic.trapezoid(x, 60, 80, 100, 100),
+        };
+
+        let inputValues = {
+          Visual: 0,
+          Auditori: 0,
+          Kinestetik: 0,
+        };
+
+        questions.forEach((group, index) => {
+          const answer = answers[`question${index + 1}`];
+          if (answer.gejala && answer.frequency) {
+            const freqValue = membershipFunctions;
+            if (index < 3) {
+              inputValues.Visual += freqValue;
+            } else if (index >= 3 && index < 6) {
+              inputValues.Auditori += freqValue;
+            } else {
+              inputValues.Kinestetik += freqValue;
+            }
+          }
+        });
+
+        let result = {
+          Visual: inputValues.Visual,
+          Auditori: inputValues.Auditori,
+          Kinestetik: inputValues.Kinestetik,
+        };
+
+        let maxCategory = "Visual";
+        if (result.Auditori > result[maxCategory]) maxCategory = "Auditori";
+        if (result.Kinestetik > result[maxCategory]) maxCategory = "Kinestetik";
+
+        alert(
+          `Hasil Logika Fuzzy:\nVisual: ${result.Visual.toFixed(
+            2
+          )}\nAuditori: ${result.Auditori.toFixed(
+            2
+          )}\nKinestetik: ${result.Kinestetik.toFixed(
+            2
+          )}\n\nKategori Terbesar: ${maxCategory}`
+        );
+      }
+    </script>
+
+    <!-- <script>
+      function calculateFuzzy() {
+        const questions = [
+          ["C01", "C02", "C03"],
+          ["C04", "C05", "C06"],
+          ["C07", "C08", "C09"],
+          ["C10", "C11", "C12"],
+          ["C13", "C14", "C15"],
+          ["C16", "C17", "C18"],
+          ["C19", "C20", "C21"],
+          ["C22", "C23", "C24"],
+          ["C25", "C26", "C27"],
+          ["C28", "C29", "C30"],
+        ];
+
+        let answers = {};
+
+        questions.forEach((group, index) => {
+          const selected = document.querySelector(
+            `input[name="question${index + 1}"]:checked`
+          );
+          const frequency = document.querySelector(
+            `input[name="frequency${index + 1}"]:checked`
+          );
+
+          if (selected && frequency) {
+            answers[`question${index + 1}`] = {
+              gejala: selected.value,
+              frequency: frequency.value,
+            };
+          } else {
+            answers[`question${index + 1}`] = {
+              gejala: null,
+              frequency: null,
+            };
+          }
+        });
+
+        const frequencyValues = {
+          Jarang: [0, 20, 40],
+          Kadang: [20, 40, 60],
+          Sering: [40, 60, 80],
+          "Sangat Sering": [60, 80, 100],
+        };
+
+        let inputValues = {
+          Visual: [0, 0, 0],
+          Auditori: [0, 0, 0],
+          Kinestetik: [0, 0, 0],
+        };
+
+        questions.forEach((group, index) => {
+          const answer = answers[`question${index + 1}`];
+          group.forEach((gejala) => {
+            if (answer.gejala === gejala) {
+              const freqValues = frequencyValues[answer.frequency];
+              if (index < 3) {
+                inputValues.Visual = [
+                  inputValues.Visual[0] + freqValues[0],
+                  inputValues.Visual[1] + freqValues[1],
+                  inputValues.Visual[2] + freqValues[2],
+                ];
+              } else if (index >= 3 && index < 6) {
+                inputValues.Auditori = [
+                  inputValues.Auditori[0] + freqValues[0],
+                  inputValues.Auditori[1] + freqValues[1],
+                  inputValues.Auditori[2] + freqValues[2],
+                ];
+              } else {
+                inputValues.Kinestetik = [
+                  inputValues.Kinestetik[0] + freqValues[0],
+                  inputValues.Kinestetik[1] + freqValues[1],
+                  inputValues.Kinestetik[2] + freqValues[2],
+                ];
+              }
+            }
+          });
+        });
+
+        let result = {
+          Visual: calculateFuzzyValue(inputValues.Visual),
+          Auditori: calculateFuzzyValue(inputValues.Auditori),
+          Kinestetik: calculateFuzzyValue(inputValues.Kinestetik),
+        };
+
+        let maxCategory = "Visual";
+        if (result.Auditori > result[maxCategory]) maxCategory = "Auditori";
+        if (result.Kinestetik > result[maxCategory]) maxCategory = "Kinestetik";
+
+        alert(
+          `Hasil Logika Fuzzy:\nVisual: ${result.Visual.toFixed(
+            2
+          )}\nAuditori: ${result.Auditori.toFixed(
+            2
+          )}\nKinestetik: ${result.Kinestetik.toFixed(
+            2
+          )}\n\nKategori Terbesar: ${maxCategory}`
+        );
+      }
+
+      function calculateFuzzyValue(input) {
+        // Menghitung nilai fuzzy dari input
+        return (input[1] + 2 * input[2]) / (input[0] + input[1] + input[2]);
+      }
+    </script> -->
+  </body>
+</html>

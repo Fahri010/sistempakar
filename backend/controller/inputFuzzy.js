@@ -8,6 +8,40 @@ const membershipFunctions = {
   sangatSering: (value) => fuzzy.triangle(value, 60, 80, 100),
 };
 
+// Definisikan input gejala dengan contoh nilai
+const inputGejala = {
+  C01: 100, //1
+  C02: 0,
+  C03: 0,
+  C04: 100, //2
+  C05: 0,
+  C06: 0,
+  C07: 60, //3
+  C08: 0,
+  C09: 0,
+  C10: 0, //4
+  C11: 100,
+  C12: 0,
+  C13: 100, //5
+  C14: 0,
+  C15: 0,
+  C16: 0, //6
+  C17: 100,
+  C18: 0,
+  C19: 70, //7
+  C20: 25,
+  C21: 50,
+  C22: 30, //8
+  C23: 40,
+  C24: 60,
+  C25: 80, //9
+  C26: 30,
+  C27: 50,
+  C28: 90, //10
+  C29: 30,
+  C30: 60,
+};
+
 // Definisikan aturan fuzzy
 const rules = [
   {
@@ -59,9 +93,6 @@ const rules = [
 
 // Fungsi untuk menghitung derajat keanggotaan
 const calculateMembership = (value) => {
-  if (value === null || value === undefined) {
-    return { jarang: 0, kadang: 0, sering: 0, sangatSering: 0 };
-  }
   return {
     jarang: membershipFunctions.jarang(value),
     kadang: membershipFunctions.kadang(value),
@@ -98,71 +129,9 @@ const determineLearningStyle = (inputGejala, rules) => {
   return output;
 };
 
-// Fungsi untuk menerima input dari user
-const getUserInput = () => {
-  const inputGejala = {};
-  const readline = require("readline");
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
+// Hitung gaya belajar berdasarkan input gejala dan aturan fuzzy
+const learningStyle = determineLearningStyle(inputGejala, rules);
 
-  const questions = [
-    "C01: ",
-    "C02: ",
-    "C03: ",
-    "C04: ",
-    "C05: ",
-    "C06: ",
-    "C07: ",
-    "C08: ",
-    "C09: ",
-    "C10: ",
-    "C11: ",
-    "C12: ",
-    "C13: ",
-    "C14: ",
-    "C15: ",
-    "C16: ",
-    "C17: ",
-    "C18: ",
-    "C19: ",
-    "C20: ",
-    "C21: ",
-    "C22: ",
-    "C23: ",
-    "C24: ",
-    "C25: ",
-    "C26: ",
-    "C27: ",
-    "C28: ",
-    "C29: ",
-    "C30: ",
-  ];
-
-  const askQuestion = (index) => {
-    if (index === questions.length) {
-      rl.close();
-      const learningStyle = determineLearningStyle(inputGejala, rules);
-      printResult(learningStyle);
-      return;
-    }
-
-    rl.question(questions[index], (answer) => {
-      inputGejala["C" + (index + 1)] = parseFloat(answer);
-      askQuestion(index + 1);
-    });
-  };
-
-  askQuestion(0);
-};
-
-// Fungsi untuk mencetak hasil
-const printResult = (learningStyle) => {
-  console.log(`Visual: ${learningStyle.visual}`);
-  console.log(`Auditori: ${learningStyle.auditori}`);
-  console.log(`Kinestetik: ${learningStyle.kinestetik}`);
-};
-
-// Panggil fungsi untuk menerima input dari user
-getUserInput();
+console.log(`Visual: ${learningStyle.visual}`);
+console.log(`Auditori: ${learningStyle.auditori}`);
+console.log(`Kinestetik: ${learningStyle.kinestetik}`);

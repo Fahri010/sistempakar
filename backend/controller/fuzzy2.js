@@ -8,6 +8,47 @@ const membershipFunctions = {
   sangatSering: (value) => fuzzy.triangle(value, 60, 80, 100),
 };
 
+// Definisikan membership function untuk output gaya belajar
+const learningStyles = {
+  lemah: (value) => fuzzy.triangle(value, 0, 20, 40),
+  sedang: (value) => fuzzy.triangle(value, 20, 40, 60),
+  kuat: (value) => fuzzy.triangle(value, 60, 80, 100),
+};
+
+// Definisikan input gejala (contoh nilai)
+const inputGejala = {
+  C01: 75, // Updated based on the example scenario
+  C02: null,
+  C03: null,
+  C04: null,
+  C05: 60,
+  C06: null,
+  C07: 75,
+  C08: null,
+  C09: null,
+  C10: null,
+  C11: 50,
+  C12: null,
+  C13: 85,
+  C14: null,
+  C15: null,
+  C16: 80,
+  C17: null,
+  C18: null,
+  C19: 70,
+  C20: null,
+  C21: null,
+  C22: null,
+  C23: null,
+  C24: 60,
+  C25: null,
+  C26: null,
+  C27: 50,
+  C28: 90,
+  C29: null,
+  C30: null,
+};
+
 // Definisikan aturan fuzzy
 const rules = [
   {
@@ -59,9 +100,6 @@ const rules = [
 
 // Fungsi untuk menghitung derajat keanggotaan
 const calculateMembership = (value) => {
-  if (value === null || value === undefined) {
-    return { jarang: 0, kadang: 0, sering: 0, sangatSering: 0 };
-  }
   return {
     jarang: membershipFunctions.jarang(value),
     kadang: membershipFunctions.kadang(value),
@@ -98,71 +136,11 @@ const determineLearningStyle = (inputGejala, rules) => {
   return output;
 };
 
-// Fungsi untuk menerima input dari user
-const getUserInput = () => {
-  const inputGejala = {};
-  const readline = require("readline");
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
+// Bagian ini belum menjalankan perhitungan dan belum menghasilkan output
+// Anda bisa menambahkan kode berikut untuk menjalankan perhitungan dan mendapatkan hasil
 
-  const questions = [
-    "C01: ",
-    "C02: ",
-    "C03: ",
-    "C04: ",
-    "C05: ",
-    "C06: ",
-    "C07: ",
-    "C08: ",
-    "C09: ",
-    "C10: ",
-    "C11: ",
-    "C12: ",
-    "C13: ",
-    "C14: ",
-    "C15: ",
-    "C16: ",
-    "C17: ",
-    "C18: ",
-    "C19: ",
-    "C20: ",
-    "C21: ",
-    "C22: ",
-    "C23: ",
-    "C24: ",
-    "C25: ",
-    "C26: ",
-    "C27: ",
-    "C28: ",
-    "C29: ",
-    "C30: ",
-  ];
+const learningStyle = determineLearningStyle(inputGejala, rules);
 
-  const askQuestion = (index) => {
-    if (index === questions.length) {
-      rl.close();
-      const learningStyle = determineLearningStyle(inputGejala, rules);
-      printResult(learningStyle);
-      return;
-    }
-
-    rl.question(questions[index], (answer) => {
-      inputGejala["C" + (index + 1)] = parseFloat(answer);
-      askQuestion(index + 1);
-    });
-  };
-
-  askQuestion(0);
-};
-
-// Fungsi untuk mencetak hasil
-const printResult = (learningStyle) => {
-  console.log(`Visual: ${learningStyle.visual}`);
-  console.log(`Auditori: ${learningStyle.auditori}`);
-  console.log(`Kinestetik: ${learningStyle.kinestetik}`);
-};
-
-// Panggil fungsi untuk menerima input dari user
-getUserInput();
+console.log(`Visual: ${learningStyle.visual}`);
+console.log(`Auditori: ${learningStyle.auditori}`);
+console.log(`Kinestetik: ${learningStyle.kinestetik}`);

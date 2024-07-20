@@ -60,18 +60,7 @@ def submit():
         return jsonify({"error": "Data tidak ditemukan"})
     
     # Get the result
-    result = fuzzy_logic(    {
-           'C01': 80, 'C02': 0, 'C03': 0, 
-        'C04': 80, 'C05': 0, 'C06': 0, 
-        'C07': 80, 'C08': 0, 'C09': 0, 
-        'C10': 80, 'C11': 0, 'C12': 0, 
-        'C13': 80, 'C14': 0, 'C15': 0, 
-        'C16': 80, 'C17': 0, 'C18': 0, 
-        'C19': 80, 'C20': 0, 'C21': 0, 
-        'C22': 80, 'C23': 0, 'C24': 0, 
-        'C25': 80, 'C26': 0, 'C27': 0, 
-        'C28': 80, 'C29': 0, 'C30': 0
-    })
+    result = fuzzy_logic(data)
 
     print(result)
 

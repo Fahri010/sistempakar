@@ -30,50 +30,145 @@ def fuzzy_logic(data):
     rules = []
 
     # Mengkonversi kombinasi fuzzy ke aturan
-    def create_rule(variables, output, style):
-        rule = None
-        if len(variables) == 3:
-            rule = ctrl.Rule(
-                antecedents[variables[0]][output] &
-                antecedents[variables[1]][output] &
-                antecedents[variables[2]][output],
-                learning_style[style]
-            )
-        elif len(variables) == 2:
-            rule = ctrl.Rule(
-                antecedents[variables[0]][output] &
-                antecedents[variables[1]][output],
-                learning_style[style]
-            )
-        elif len(variables) == 1:
-            rule = ctrl.Rule(
-                antecedents[variables[0]][output],
-                learning_style[style]
-            )
-        if rule:
-            rules.append(rule)
+    # def create_rule(variables, output, style):
+    #     rule = None
+    #     if len(variables) == 3:
+    #         rule = ctrl.Rule(
+    #             antecedents[variables[0]][output] &
+    #             antecedents[variables[1]][output] &
+    #             antecedents[variables[2]][output],
+    #             learning_style[style]
+    #         )
+    #     elif len(variables) == 2:
+    #         rule = ctrl.Rule(
+    #             antecedents[variables[0]][output] &
+    #             antecedents[variables[1]][output],
+    #             learning_style[style]
+    #         )
+    #     elif len(variables) == 1:
+    #         rule = ctrl.Rule(
+    #             antecedents[variables[0]][output],
+    #             learning_style[style]
+    #         )
+    #     if rule:
+    #         rules.append(rule)
             
-    # Visual
-    create_rule(["C01", "C04", "C07"], 'sering', 'visual')
-    create_rule(["C10", "C13", "C16"], 'sering', 'visual')
-    create_rule(["C19", "C22", "C25"], 'sering', 'visual')
-    create_rule(["C28"], 'sering', 'visual')
+    # # Visual
+    # create_rule(["C01", "C04", "C07"], 'sering', 'visual')
+    # create_rule(["C10", "C13", "C16"], 'sering', 'visual')
+    # create_rule(["C19", "C22", "C25"], 'sering', 'visual')
+    # create_rule(["C28"], 'sering', 'visual')
 
-    # Auditory
-    create_rule(["C02", "C05", "C08"], 'sering', 'auditory')
-    create_rule(["C11", "C14", "C17"], 'sering', 'auditory')
-    create_rule(["C20", "C23", "C26"], 'sering', 'auditory')
-    create_rule(["C29"], 'sering', 'auditory')
+    # # Auditory
+    # create_rule(["C02", "C05", "C08"], 'sering', 'auditory')
+    # create_rule(["C11", "C14", "C17"], 'sering', 'auditory')
+    # create_rule(["C20", "C23", "C26"], 'sering', 'auditory')
+    # create_rule(["C29"], 'sering', 'auditory')
 
-    # Kinesthetic
-    create_rule(["C03", "C06", "C09"], 'sering', 'kinesthetic')
-    create_rule(["C12", "C15", "C18"], 'sering', 'kinesthetic')
-    create_rule(["C21", "C24", "C27"], 'sering', 'kinesthetic')
-    create_rule(["C30"], 'sering', 'kinesthetic')
+    # # Kinesthetic
+    # create_rule(["C03", "C06", "C09"], 'sering', 'kinesthetic')
+    # create_rule(["C12", "C15", "C18"], 'sering', 'kinesthetic')
+    # create_rule(["C21", "C24", "C27"], 'sering', 'kinesthetic')
+    # create_rule(["C30"], 'sering', 'kinesthetic')
+
+
+    def create_rule(variables, outputs):
+        for output in outputs:
+            if len(variables) == 3:
+                rule = ctrl.Rule(
+                    antecedents[variables[0]][output[0]] &
+                    antecedents[variables[1]][output[1]] &
+                    antecedents[variables[2]][output[2]],
+                    learning_style[output[3]]
+                )
+            elif len(variables) == 2:
+                rule = ctrl.Rule(
+                    antecedents[variables[0]][output[0]] &
+                    antecedents[variables[1]][output[1]],
+                    learning_style[output[2]]
+                )
+            elif len(variables) == 1:
+                rule = ctrl.Rule(
+                    antecedents[variables[0]][output[0]],
+                    learning_style[output[1]]
+                )
+            rules.append(rule)
+
+    create_rule(["C01", "C04", "C07"], [
+        ('sering', 'jarang', 'jarang', 'visual'),
+        ('sering', 'sering', 'jarang', 'visual'),
+        ('sering', 'sering', 'sering', 'visual'),
+        ('jarang', 'jarang', 'sering', 'visual'),
+    ])
+    create_rule(["C10", "C13", "C16"], [
+        ('sering', 'jarang', 'jarang', 'visual'),
+        ('sering', 'sering', 'jarang', 'visual'),
+        ('sering', 'sering', 'sering', 'visual'),
+        ('jarang', 'jarang', 'sering', 'visual'),
+    ])
+    create_rule(["C19", "C22", "C25"], [
+        ('sering', 'jarang', 'jarang', 'visual'),
+        ('sering', 'sering', 'jarang', 'visual'),
+        ('sering', 'sering', 'sering', 'visual'),
+        ('jarang', 'jarang', 'sering', 'visual'),
+    ])
+    create_rule(["C28"], [
+        ('sering', 'visual'),
+    ])
+
+    create_rule(["C02", "C05", "C08"], [
+        ('sering', 'jarang', 'jarang', 'auditory'),
+        ('sering', 'sering', 'jarang', 'auditory'),
+        ('sering', 'sering', 'sering', 'auditory'),
+        ('jarang', 'jarang', 'sering', 'auditory'),
+    ])
+    create_rule(["C11", "C14", "C17"], [
+        ('sering', 'jarang', 'jarang', 'auditory'),
+        ('sering', 'sering', 'jarang', 'auditory'),
+        ('sering', 'sering', 'sering', 'auditory'),
+        ('jarang', 'jarang', 'sering', 'auditory'),
+    ])
+    create_rule(["C20", "C23", "C26"], [
+        ('sering', 'jarang', 'jarang', 'auditory'),
+        ('sering', 'sering', 'jarang', 'auditory'),
+        ('sering', 'sering', 'sering', 'auditory'),
+        ('jarang', 'jarang', 'sering', 'auditory'),
+    ])
+    create_rule(["C29"], [
+        ('sering', 'auditory'),
+    ])
+
+    create_rule(["C03", "C06", "C09"], [
+        ('sering', 'jarang', 'jarang', 'kinesthetic'),
+        ('sering', 'sering', 'jarang', 'kinesthetic'),
+        ('sering', 'sering', 'sering', 'kinesthetic'),
+        ('jarang', 'jarang', 'sering', 'kinesthetic'),
+    ])
+    create_rule(["C12", "C15", "C18"], [
+        ('sering', 'jarang', 'jarang', 'kinesthetic'),
+        ('sering', 'sering', 'jarang', 'kinesthetic'),
+        ('sering', 'sering', 'sering', 'kinesthetic'),
+        ('jarang', 'jarang', 'sering', 'kinesthetic'),
+    ])
+    create_rule(["C21", "C24", "C27"], [
+        ('sering', 'jarang', 'jarang', 'kinesthetic'),
+        ('sering', 'sering', 'jarang', 'kinesthetic'),
+        ('sering', 'sering', 'sering', 'kinesthetic'),
+        ('jarang', 'jarang', 'sering', 'kinesthetic'),
+    ])
+    create_rule(["C30"], [
+        ('sering', 'kinesthetic'),
+    ])
+
+
 
     # Membuat kontrol sistem
     learning_style_ctrl = ctrl.ControlSystem(rules)
     learning_style_sim = ctrl.ControlSystemSimulation(learning_style_ctrl)
+
+    # Memberikan input nilai
+    inputs = data
+    print(f"Inputs: {inputs}")  # Logging input values for debugging
 
     # Memberikan input nilai
     # Misalnya, ini adalah input dari pengguna
